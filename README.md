@@ -29,7 +29,7 @@ To embed Angular we have added the following lines of code to the `_Layout.cshtm
 ```
 
 # Prerequisites
-Since this project uses .NET Framework 4.8, it would not work on Mac or Linux.
+Since this project uses .NET Framework 4.8, it will not work on Mac or Linux.
 
 # Installing
 Install the [.NET Framework 4.8 Developer pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48)
@@ -58,9 +58,9 @@ Refused to apply inline style because it violates the following Content Security
 on line 83 of the layout.mjs from the Angular CDK.
 
 # Solving errors
-After cloning the repository and building the MVC application for the first time. It can fail. If that happens, clean and rebuild the application.
+After cloning the repository and building the MVC application for the first time. It can fail. If that happens, clean and rebuild the application (in Visual Studio).
 
 # Sources
 
-- [How to embed Angular 4 in a .NET Framework 4.8 MVC project](https://dotnetthoughts.net/how-to-use-angular4-wth-aspnet-mvc/)]
-- [Add nonce to Content Security Policy in Angular](https://dev.to/ferdiesletering/how-to-implement-an-inline-styles-content-security-policy-with-angular-and-nginx-2ke2)]
+- [How to embed Angular 4 in a .NET Framework 4.8 MVC project](https://dotnetthoughts.net/how-to-use-angular4-wth-aspnet-mvc/)
+- [Add nonce to Content Security Policy in Angular](https://dev.to/ferdiesletering/how-to-implement-an-inline-styles-content-security-policy-with-angular-and-nginx-2ke2)
