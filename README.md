@@ -58,6 +58,8 @@ Refused to apply inline style because it violates the following Content Security
 on line 83 of the layout.mjs from the Angular CDK.
 
 # Solving errors
+
+Error 1:
 After cloning the repository and building the MVC application for the first time. It can fail and show this error
 
 ```
@@ -65,6 +67,22 @@ Could not find a part of the path '~\csp-header\CspHeader\bin\roslyn\csc.exe'.
 ```
 
 If that happens, clean and rebuild the application (in Visual Studio).
+
+Error 2:
+If building the Angular project fails.
+
+Try to run 
+```
+ng update @angular/core@15 @angular/cli@15
+```
+
+and 
+
+```
+ng update @angular/material@15
+```
+
+Then build again.
 
 # Sources
 
