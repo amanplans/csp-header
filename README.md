@@ -88,3 +88,13 @@ Then build again.
 
 - [How to embed Angular 4 in a .NET Framework 4.8 MVC project](https://dotnetthoughts.net/how-to-use-angular4-wth-aspnet-mvc/)
 - [Add nonce to Content Security Policy in Angular](https://dev.to/ferdiesletering/how-to-implement-an-inline-styles-content-security-policy-with-angular-and-nginx-2ke2)
+
+
+## Update 2023-04-12
+
+The project is updated to Angular preview version 16.0.0-next.7. In this [Angular commit in Github](https://github.com/angular/angular/pull/49561/commits/47238292f9f3b1e1071648cb884f5f0057e60a5a)
+two new ways to fix CSP related errors are the use of `ngCspNonce` or `CSP_NONCE`. The project has been updated to use the former. The error in the `layout.mjs` file still exists.
+
+Another error has been introduced by applying inline style to a paragraph tag by using the innerHTML attribute.
+
+The generated nonces have to be the same, somehow @Html.CspStyleNonce() generated a difference nonce than @Html.CspScriptNonce(). This can be checked with 'View page source' (in Edge press CTRL + U).
