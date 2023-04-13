@@ -1,5 +1,7 @@
 ﻿@using NWebsec.Mvc.HttpHeaders.Csp
-
+@{ 
+    var nonce = Html.CspStyleNonce().ToString().Replace("nonce=\"", "").Replace("\"", "");
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +16,8 @@
     <div class="container body-content">
         @RenderBody()
         <style @Html.CspStyleNonce()></style>
-        <script @Html.CspScriptNonce()></script>
-        <app-root></app-root>
+        <script @Html.CspStyleNonce()></script>
+        <app-root ngCspNonce="@nonce"></app-root>
         @Scripts.Render("~/Script/Bundles/AngularModules")
         <hr />
         <footer>

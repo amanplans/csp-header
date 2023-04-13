@@ -13,7 +13,8 @@ export class AppComponent implements OnDestroy {
   lorem: any = {
     ipsum: 'Lorem ipsum'
   };
-
+  link: string = '<a href="https://www.google.com" style="cursor: auto; color: rgb(0, 0, 0); background-color: rgb(250, 250, 250);">Google</a>';
+  
   subscription: Subscription;
 
   firstFormGroup = this._formBuilder.group({

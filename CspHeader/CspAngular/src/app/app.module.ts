@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { InlineStylesCSPModule } from './content-security-policy/inline-styles-csp.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -17,7 +16,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    InlineStylesCSPModule,
     AppRoutingModule,    
     HttpClientModule,
     BrowserAnimationsModule,
