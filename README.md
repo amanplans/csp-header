@@ -1,11 +1,11 @@
 # csp-header
-This project is created to show the Content Security Policy (CSP) error in Angular. The project is a .NET Framework 4.8 MVC application with Angular 15 embedded in it.
+This project is created to show the Content Security Policy (CSP) error in Angular. The project is a .NET Framework 4.8 MVC application with Angular 15 embedded in it. On 2023-04-12 the project has been updated to Angular preview version 16.0.0-next.7, because in this version the keyword `ngCspNonce` has been added to solve CSP errors.
 
 In order to add the CSP header, we make use of NWebSec, the configuration can be found in the `Startup.Auth.cs` file. To add a nonce to Style and Script tags we have added the following lines of code to the `_Layout.cshtml` file.
 
 ```
 <style @Html.CspStyleNonce()></style>
-<script @Html.CspScriptNonce()></script>
+<script @Html.CspStyleNonce()></script>
 ```
 
 After the Angular project is built, we put the result in the `Bundles/AngularModules` folder with the following line in the `angular.json` file.
@@ -24,7 +24,12 @@ bundles.Add(new Bundle("~/Script/Bundles/AngularModules")
 To embed Angular we have added the following lines of code to the `_Layout.cshtml` file
 
 ```
-<app-root></app-root>
+@using NWebsec.Mvc.HttpHeaders.Csp
+@{ 
+    var nonce = Html.CspStyleNonce().ToString().Replace("nonce=\"", "").Replace("\"", "");
+}
+
+<app-root ngCspNonce="@nonce"></app-root>
 @Scripts.Render("~/Script/Bundles/AngularModules")
 ```
 
@@ -55,7 +60,21 @@ Open DevTools in the browser. In the Console log (tab), you will see an error li
 Refused to apply inline style because it violates the following Content Security Policy directive: "style-src 'self' 'nonce-B/QNx75XM84YLWpnHcVPghih' fonts.googleapis.com". Either the 'unsafe-inline' keyword, a hash ('sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='), or a nonce ('nonce-...') is required to enable inline execution.
 `
 
-on line 83 of the layout.mjs from the Angular CDK.
+on line 69 of the layout.mjs from the Angular CDK.
+
+After starting the project and refreshing the page. In DevTools you will see an CSP error for app.component.html:52.
+
+This is triggered by:
+
+```
+HTML file
+<p [innerHTML]="link"></p>
+
+TS file
+link: string = '<a href="https://www.google.com" style="cursor: auto; color: rgb(0, 0, 0); background-color: rgb(250, 250, 250);">Google</a>';
+```
+
+It is not clear how to add a nonce to the paragraph tag.
 
 # Solving errors
 
