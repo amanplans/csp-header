@@ -1,6 +1,6 @@
 # CspAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3. On 2023-04-12 the project has been updated to Angular preview version 16.0.0-next.7
 
 ## Development server
 
