@@ -1,5 +1,5 @@
 # csp-header
-This project is created to show the Content Security Policy (CSP) error in Angular. The project is a .NET Framework 4.8 MVC application with Angular 15 embedded in it. On 2023-04-12 the project has been updated to Angular preview version 16.0.0-next.7, because in this version the keyword `ngCspNonce` has been added to solve CSP errors.
+This project is created to show the Content Security Policy (CSP) error in Angular. The project is a .NET Framework 4.8 MVC application with Angular 15 embedded in it. On 2023-04-12 the project has been updated to Angular preview version 16.0.0-next.7, because in this version the keyword `ngCspNonce` has been added to solve CSP errors. 
 
 In order to add the CSP header, we make use of NWebSec, the configuration can be found in the `Startup.Auth.cs` file. To add a nonce to Style and Script tags we have added the following lines of code to the `_Layout.cshtml` file.
 
@@ -92,13 +92,13 @@ If building the Angular project fails.
 
 Try to run 
 ```
-ng update @angular/core@15 @angular/cli@15
+ng update @angular/core@16.0.0-next.7 @angular/cli@16.0.0-next.7
 ```
 
 and 
 
 ```
-ng update @angular/material@15
+ng update @angular/material@16.0.0-next.5
 ```
 
 Then build again.
