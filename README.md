@@ -1,4 +1,6 @@
 # csp-header
+On 2023-04-20 `@angular/cdk` is upgraded to version `16.0.0-rc.1` and this fixes the layout.mjs error. When Angular 16 is released. I will update this project again.
+
 This project is created to show the Content Security Policy (CSP) error in Angular. The project is a .NET Framework 4.8 MVC application with Angular 15 embedded in it. On 2023-04-12 the project has been updated to Angular preview version 16.0.0-next.7, because in this version the keyword `ngCspNonce` has been added to solve CSP errors. 
 
 In order to add the CSP header, we make use of NWebSec, the configuration can be found in the `Startup.Auth.cs` file. To add a nonce to Style and Script tags we have added the following lines of code to the `_Layout.cshtml` file.
